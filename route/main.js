@@ -10,4 +10,8 @@ module.exports = function(app) {
  app.get("/addfood", function(req, res) {
    res.render("addfood.ejs");
  });
+ 
+  app.post("/foodadded", function(req,res){
+     res.send(req.body)
+   });
 }
