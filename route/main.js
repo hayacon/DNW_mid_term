@@ -18,7 +18,7 @@ module.exports = function(app) {
     if(err){
        return console.log(err.message);
      }else{
-       res.send("Food is added to database, food : " + req.body.name + "\n unit : " + req.body.unit + "\n calorie : " + req.body.calorie + "\n carbs : " + req.body.carbs + "\n fat : " + req.body.fat + "\n protein : " + req.body.protein + "\n salt : " + req.body.salt + "\n sugar : " + req.body.sugar);
+       res.send("Food is added to database, food : " + req.body.name + " unit : " + req.body.unit + " calorie : " + req.body.calorie + " carbs : " + req.body.carbs + " fat : " + req.body.fat + " protein : " + req.body.protein + " salt : " + req.body.salt + " sugar : " + req.body.sugar);
      }
   });
 });
