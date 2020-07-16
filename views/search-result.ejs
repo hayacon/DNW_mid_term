@@ -1,0 +1,42 @@
+<!-- views/search-result.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body class="container">
+
+<header>
+  <%- include('partials/header') %>
+</header>
+
+<main>
+    <div class="jumbotron">
+      <h2>Search result</h2>
+      <% if(foodresult.length != 0) { %>
+        <p><a href="/search"> search again </a></p>
+        <% for(let i = 0; i < foodresult.length; i++) { %>
+          <p> Food => <%= foodresult[i].name %> </p>
+          <li>Unit : <%= foodresult[i].unit %></li>
+          <li>Calorie : <%= foodresult[i].calorie %>g</li>
+          <li>Carbonhydrates : <%= foodresult[i].carbs %>g</li>
+          <li>Fat : <%= foodresult[i].fat %>g</li>
+          <li>Protein : <%= foodresult[i].protein %>g</li>
+          <li>Salt : <%= foodresult[i].salt %>g</li>
+          <li>Sugar : <%= foodresult[i].sugar %>g</li>
+        <% } %>
+      <p><a href="/search"> search again </a></p>
+      <% } %>
+      <% if(foodresult.length == 0) { %>
+      <p> not found, try <a href="/search"> search again </a></p>
+      <% } %>
+    </div>
+</main>
+
+<footer>
+  <%- include('partials/footer') %>
+</footer>
+
+</body>
+</html>
