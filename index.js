@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const mysql = require("mysql");
 const port = 8089;
 
+global.foodAdded = false; 
 app.use(bodyParser.urlencoded({extended : true}));
 
 const db = mysql.createConnection({
