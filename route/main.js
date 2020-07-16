@@ -26,6 +26,22 @@ module.exports = function(app) {
   app.get("/search", function(req, res) {
     res.render("search.ejs");
   });
+
+  app.get("/search-result", function(req, res) {
+    let word = [req.query.keyword];
+    let sqlquery = "SELECT*FROM food WHERE name like ?";
+
+    db.query(sqlquery, word, (err, result) => {
+    if(err)
+    {
+      res.render("search-result.ejs")
+    }else{
+      res.render("search-result.ejs", {foodresult:result});
+    }
+    });
+
+    // res.render("search-result.ejs");
+  });
 }
 
 // ("Food is added to database, food : " + req.body.name + " unit : " + req.body.unit + " calorie : " + req.body.calorie + " carbs : " + req.body.carbs + " fat : " + req.body.fat + " protein : " + req.body.protein + " salt : " + req.body.salt + " sugar : " + req.body.sugar);
