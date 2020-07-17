@@ -17,14 +17,37 @@
       <% if(foodresult.length != 0) { %>
         <p><a href="/search"> search again </a></p>
         <% for(let i = 0; i < foodresult.length; i++) { %>
-          <p> Food => <%= foodresult[i].name %> </p>
-          <li>Unit : <%= foodresult[i].unit %></li>
-          <li>Calorie : <%= foodresult[i].calorie %>g</li>
-          <li>Carbonhydrates : <%= foodresult[i].carbs %>g</li>
-          <li>Fat : <%= foodresult[i].fat %>g</li>
-          <li>Protein : <%= foodresult[i].protein %>g</li>
-          <li>Salt : <%= foodresult[i].salt %>g</li>
-          <li>Sugar : <%= foodresult[i].sugar %>g</li>
+          <form method="POST" action="update-food">
+          <h5> <%= foodresult[i].name %>  </h5>
+          <ul>
+            <li><label for="calorie">Calories : </label>
+            <input id="calorie" type="number" name="calorie" value= <%= foodresult[i].calorie %> /> cal </li>
+
+            <li><label for="carbs">Carbonhydrates : </label>
+            <input id="carbs" type="number" name="carbs" value= <%= foodresult[i].carbs %> /> <%= foodresult[i].unit %> </li>
+
+            <li><label for="fat">Fat : </label>
+            <input id="fat" type="number" name="fat" value= <%= foodresult[i].fat %> /> <%= foodresult[i].unit %> </li>
+
+            <li><label for="protein">Protein : </label>
+            <input id="protein" type="number" name="protein" value= <%= foodresult[i].protein %> /> <%= foodresult[i].unit %> </li>
+
+            <li><label for="salt">Salt : </label>
+            <input id="salt" type="number" name="salt" value= <%= foodresult[i].salt %> /> <%= foodresult[i].unit %> </li>
+
+            <li><label for="sugar">Sugar : </label>
+            <input id="sugar" type="number" name="sugar" value= <%= foodresult[i].sugar %> /> <%= foodresult[i].unit %> </li>
+
+            <li><label for="unit">Unit : </label>
+            <input id="unit" type="text" name="unit" value= <%= foodresult[i].unit %> /></li>
+
+            <input type="hidden" id="id" name="id" value= <%= foodresult[i].id %> />
+
+            <button type="submit" formmethod="POST" formaction="delete-food"> Delete </button> 
+            <button type="submit" formmethod="POST"> Update </button>
+
+        </ul>
+      </form>
         <% } %>
       <p><a href="/search"> search again </a></p>
       <% } %>
