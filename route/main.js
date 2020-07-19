@@ -67,10 +67,6 @@ module.exports = function(app) {
     });
   });
 
-  // app.post("/delete", funtion(req, res) {
-  //   let sqlquery = "DELETE FROM food WHERE id = ?"
-  // })
-
   app.get("/list", function(req, res) {
     let sqlquery = "SELECT*FROM food ORDER BY name";
   db.query(sqlquery, (err, result)=>{
@@ -78,6 +74,10 @@ module.exports = function(app) {
     res.render("list.ejs", {availbleFoods: result});
   });
   });
+
+  app.post("/counter", function(reqm res) {
+    
+  })
 
 }
 
