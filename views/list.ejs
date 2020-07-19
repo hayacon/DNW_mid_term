@@ -15,21 +15,25 @@
     <div class="jumbotron">
         <h2>Food List</h2>
         <% if(availbleFoods.length == 0) { %>
-          <p>No food is found. <a href="/"> Add food </a> on database <p>
+          <p>No food is found. <a href="/addfood"> Add food </a> on database <p>
         <% } %>
         <% if(availbleFoods.length != 0) { %>
+          <form action="/counter" method="GET">
           <% for(let i = 0; i < availbleFoods.length; i++) { %>
-            <h5> <%= availbleFoods[i].name %> (id: <%= availbleFoods[i].id %>)</h5>
+            <h5> <input type="checkbox" name="id" value= <%= availbleFoods[i].id %> >
+              <%= availbleFoods[i].name %> </h5>
             <ul>
               <li>Calorie : <%= availbleFoods[i].calorie %> cal</li>
-              <li>Carbonhydrates : <%= availbleFoods[i].carbs %> <%= availbleFoods[i].unit %></li>
+              <li>Carbonhydrates : <%= availbleFoods[i].carbs %> <%= availbleFoods[i].unit %>
+              </li>
               <li>Fat : <%= availbleFoods[i].fat %> <%= availbleFoods[i].unit %></li>
               <li>Protein : <%= availbleFoods[i].protein %> <%= availbleFoods[i].unit %></li>
               <li>Salt : <%= availbleFoods[i].salt %> <%= availbleFoods[i].unit %></li>
               <li>Sugar : <%= availbleFoods[i].sugar %> <%= availbleFoods[i].unit %></li>
             </ul>
-
           <% } %>
+            <button type="submit">Combine</button>
+          </form>
           <% } %>
     </div>
 </main>

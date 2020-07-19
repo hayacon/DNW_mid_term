@@ -1,0 +1,51 @@
+<!-- views/counter.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body class="container">
+
+<header>
+  <%- include('partials/header') %>
+</header>
+
+<main>
+    <div class="jumbotron">
+      <ul>
+      <h5>Selected foods :
+        <% let totalCalorie = 0; %>
+        <% let totalCarbs = 0; %>
+        <% let totalFat = 0; %>
+        <% let totalProtein = 0; %>
+        <% let totalSalt = 0; %>
+        <% let totalSugar = 0; %>
+
+        <% for(let i = 0; i < checkedFood.length ; i++) { %>
+          <%= checkedFood[i].name %>
+        <% totalCalorie += checkedFood[i].calorie %>
+        <% totalCarbs += checkedFood[i].carbs %>
+        <% totalFat += checkedFood[i].fat %>
+        <% totalProtein += checkedFood[i].protein %>
+        <% totalSalt += checkedFood[i].salt %>
+        <% totalSugar += checkedFood[i].sugar %>
+        /
+        <% } %>
+        </h5>
+        <li>Total Calorie =>  <%= totalCalorie %> </li>
+        <li>Total Carbonhydrates=>  <%= totalCarbs %></li>
+        <li>Total Fat =>  <%= totalFat %></li>
+        <li>Total Protein =>  <%= totalProtein %></li>
+        <li>Total Salt =>  <%= totalSalt %></li>
+        <li>Total Sugar =>  <%= totalSugar %></li>
+      </ul>
+    </div>
+</main>
+
+<footer>
+  <%- include('partials/footer') %>
+</footer>
+
+</body>
+</html>
