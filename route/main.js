@@ -31,7 +31,7 @@ module.exports = function(app) {
     if(err){
        return console.log(err.message);
      }else{
-       res.send('<p> Food is updated on database </p>' + '<li> Unit : ' + req.body.unit + '</li>' + '<li> Calorie : ' + req.body.calorie + '</li>' + '<li> Carbs : ' + req.body.carbs + '</li>' + '<li> Fat : ' + req.body.fat + '</li>' + '<li> Protein : ' + req.body.protein + '</li>'+ '<li> Salt : ' + req.body.salt + '</li>'+ '<li>Sugar : ' + req.body.sugar + '</li>'+ '<a href="/search"> Back </a>' +
+       res.send('<p> Food is now updated on database </p>' + '<li> Unit : ' + req.body.unit + '</li>' + '<li> Calorie : ' + req.body.calorie + '</li>' + '<li> Carbs : ' + req.body.carbs + '</li>' + '<li> Fat : ' + req.body.fat + '</li>' + '<li> Protein : ' + req.body.protein + '</li>'+ '<li> Salt : ' + req.body.salt + '</li>'+ '<li>Sugar : ' + req.body.sugar + '</li>'+ '<a href="/search"> Back </a>' +
        '<ul class="nav navbar-nav"><li><a href="/">Home</a></li><li><a href="/about">About</a></li><li><a href="/addfood">Add Food</a></li><li><a href="/search">Search Food</a></li><li><a href="/list">Foods List</a></li></ul>')
      }
    });
@@ -44,7 +44,7 @@ module.exports = function(app) {
         if(err){
           return console.lof(err.message);
         }else{
-          res.send('<p> Item is succesfully deleted from database </p>' + '<a href="/search"> Back </a>' + '<ul class="nav navbar-nav"><li><a href="/">Home</a></li><li><a href="/about">About</a></li><li><a href="/addfood">Add Food</a></li><li><a href="/search">Search Food</a></li><li><a href="/list">Foods List</a></li></ul>')
+          res.send('<p> Item was succesfully deleted from database </p>' + '<a href="/search"> Back </a>' + '<ul class="nav navbar-nav"><li><a href="/">Home</a></li><li><a href="/about">About</a></li><li><a href="/addfood">Add Food</a></li><li><a href="/search">Search Food</a></li><li><a href="/list">Foods List</a></li></ul>')
         }
       })
   })
@@ -75,8 +75,19 @@ module.exports = function(app) {
   });
   });
 
-  app.post("/counter", function(reqm res) {
-    
+  app.get("/counter", function(req, res) {
+    console.log(req.query.id);
+    let sqlquery = "SELECT * FROM food WHERE id IN(?)";
+    let foods = [];
+    let id = [req.query.id];
+    db.query(sqlquery, id, (err, result) => {
+      if(err){
+        console.log("error");
+      }else{
+        res.render("counter.ejs", {checkedFood: result});
+      }
+    })
+
   })
 
 }
