@@ -42,7 +42,7 @@ module.exports = function(app) {
       let id = [req.body.id];
       db.query(sqlquery, id, (err, result) => {
         if(err){
-          return console.lof(err.message);
+          return console.log(err.message);
         }else{
           res.send('<p> Item was succesfully deleted from database </p>' + '<a href="/search"> Back </a>' + '<ul class="nav navbar-nav"><li><a href="/">Home</a></li><li><a href="/about">About</a></li><li><a href="/addfood">Add Food</a></li><li><a href="/search">Search Food</a></li><li><a href="/list">Foods List</a></li></ul>')
         }
@@ -76,15 +76,14 @@ module.exports = function(app) {
   });
 
   app.get("/counter", function(req, res) {
-    console.log(req.query.id);
     let sqlquery = "SELECT * FROM food WHERE id IN(?)";
     let foods = [];
     let id = [req.query.id];
     db.query(sqlquery, id, (err, result) => {
       if(err){
-        console.log("error");
+        return console.log(err.message);
       }else{
-        res.render("counter.ejs", {checkedFood: result});
+        res.render("counter.ejs", {checkedFood: result.name});
       }
     })
 
