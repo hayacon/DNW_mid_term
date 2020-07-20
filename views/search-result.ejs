@@ -14,9 +14,7 @@
 <main>
     <div class="jumbotron">
       <h2>Search result</h2>
-      <% if(foodresult.length != 0) { %>
-        <p><a href="/search"> search again </a></p>
-        <% for(let i = 0; i < foodresult.length; i++) { %>
+      <% if(foodresult.length != 0) { %>        <% for(let i = 0; i < foodresult.length; i++) { %>
           <form method="POST" action="update-food">
           <h5> <%= foodresult[i].name %>  </h5>
           <ul>
@@ -43,8 +41,8 @@
 
             <input type="hidden" id="id" name="id" value= <%= foodresult[i].id %> />
 
-            <button type="submit" formmethod="POST" formaction="delete-food"> Delete </button> 
-            <button type="submit" formmethod="POST"> Update </button>
+            <button type="submit" formmethod="POST" formaction="delete-food"> DELETE </button>
+            <button type="submit" formmethod="POST"> UPDATE </button>
 
         </ul>
       </form>
