@@ -2,30 +2,30 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <%- include('partials/head') %>
-</head>
-<body class="container">
+  <head>
+    <%- include('partials/head') %>
+  </head>
+  <body class="container">
 
-<header>
-  <%- include('partials/header') %>
-</header>
+    <header>
+      <%- include('partials/header') %>
+    </header>
 
-<main>
-    <div class="jumbotron">
-      <h2>Search database</h2>
-      <div class="active-cyan-3 active-cyan-4 mb-4">
-        <form action="/search-result" method="GET" class="form-inline mr-auto">
-          <input class="form-control mr-sm-2" type="text" name="keyword" placeholder="Search" aria-label="Search">
-          <button class="btn blue-gradient btn-rounded btn-sm my-0" type="submit">SEARCH</button>
-        </form>
-      </div>
-    </div>
-</main>
+    <main>
+        <div class="jumbotron">
+          <h2>Search database</h2>
+          <div class="active-cyan-3 active-cyan-4 mb-4">
+            <form action="/search-result" method="GET" class="form-inline mr-auto">
+              <input class="form-control mr-sm-2" type="text" name="keyword" placeholder="Search" aria-label="Search">
+              <button class="btn blue-gradient btn-rounded btn-sm my-0" type="submit">SEARCH</button>
+            </form>
+          </div>
+        </div>
+    </main>
 
-<footer>
-  <%- include('partials/footer') %>
-</footer>
+    <footer>
+      <%- include('partials/footer') %>
+    </footer>
 
-</body>
+  </body>
 </html>

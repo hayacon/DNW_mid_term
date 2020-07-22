@@ -2,62 +2,62 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <%- include('partials/head') %>
-</head>
-<body class="container">
+  <head>
+    <%- include('partials/head') %>
+  </head>
+  <body class="container">
 
-<header>
-  <%- include('partials/header') %>
-</header>
+    <header>
+      <%- include('partials/header') %>
+    </header>
 
-<main>
-    <div class="jumbotron">
-      <h2>Search result</h2>
-      <% if(foodresult.length != 0) { %>        <% for(let i = 0; i < foodresult.length; i++) { %>
-          <form method="POST" action="update-food">
-          <h5> <%= foodresult[i].name %>  </h5>
-          <ul>
-            <li><label for="calorie">Calories : </label>
-            <input id="calorie" type="number" name="calorie" value= <%= foodresult[i].calorie %> /> cal </li>
+    <main>
+        <div class="jumbotron">
+          <h2>Search result</h2>
+          <% if(foodresult.length != 0) { %>
+             <% for(let i = 0; i < foodresult.length; i++) { %>
+                <form method="POST" action="update-food">
+                  <h5> <%= foodresult[i].name %>  </h5>
+                  <ul>
+                      <li><label for="calorie">Calories : </label>
+                      <input id="calorie" type="number" name="calorie" value= <%= foodresult[i].calorie %> /> cal </li>
 
-            <li><label for="carbs">Carbonhydrates : </label>
-            <input id="carbs" type="number" name="carbs" value= <%= foodresult[i].carbs %> /> <%= foodresult[i].unit %> </li>
+                      <li><label for="carbs">Carbonhydrates : </label>
+                      <input id="carbs" type="number" name="carbs" value= <%= foodresult[i].carbs %> /> <%= foodresult[i].unit %> </li>
 
-            <li><label for="fat">Fat : </label>
-            <input id="fat" type="number" name="fat" value= <%= foodresult[i].fat %> /> <%= foodresult[i].unit %> </li>
+                      <li><label for="fat">Fat : </label>
+                      <input id="fat" type="number" name="fat" value= <%= foodresult[i].fat %> /> <%= foodresult[i].unit %> </li>
 
-            <li><label for="protein">Protein : </label>
-            <input id="protein" type="number" name="protein" value= <%= foodresult[i].protein %> /> <%= foodresult[i].unit %> </li>
+                      <li><label for="protein">Protein : </label>
+                      <input id="protein" type="number" name="protein" value= <%= foodresult[i].protein %> /> <%= foodresult[i].unit %> </li>
 
-            <li><label for="salt">Salt : </label>
-            <input id="salt" type="number" name="salt" value= <%= foodresult[i].salt %> /> <%= foodresult[i].unit %> </li>
+                      <li><label for="salt">Salt : </label>
+                      <input id="salt" type="number" name="salt" value= <%= foodresult[i].salt %> /> <%= foodresult[i].unit %> </li>
 
-            <li><label for="sugar">Sugar : </label>
-            <input id="sugar" type="number" name="sugar" value= <%= foodresult[i].sugar %> /> <%= foodresult[i].unit %> </li>
+                      <li><label for="sugar">Sugar : </label>
+                      <input id="sugar" type="number" name="sugar" value= <%= foodresult[i].sugar %> /> <%= foodresult[i].unit %> </li>
 
-            <li><label for="unit">Unit : </label>
-            <input id="unit" type="text" name="unit" value= <%= foodresult[i].unit %> /></li>
+                      <li><label for="unit">Unit : </label>
+                      <input id="unit" type="text" name="unit" value= <%= foodresult[i].unit %> /></li>
 
-            <input type="hidden" id="id" name="id" value= <%= foodresult[i].id %> />
+                      <input type="hidden" id="id" name="id" value= <%= foodresult[i].id %> />
 
-            <button type="submit" formmethod="POST" formaction="delete-food"> DELETE </button>
-            <button type="submit" formmethod="POST"> UPDATE </button>
+                      <button type="submit" formmethod="POST" formaction="delete-food"> DELETE </button>
+                      <button type="submit" formmethod="POST"> UPDATE </button>
+                  </ul>
+                </form>
+              <% } %>
+            <p><a href="/search"> search again </a></p>
+          <% } %>
+          <% if(foodresult.length == 0) { %>
+          <p> not found, try <a href="/search"> search again </a></p>
+          <% } %>
+        </div>
+    </main>
 
-        </ul>
-      </form>
-        <% } %>
-      <p><a href="/search"> search again </a></p>
-      <% } %>
-      <% if(foodresult.length == 0) { %>
-      <p> not found, try <a href="/search"> search again </a></p>
-      <% } %>
-    </div>
-</main>
+    <footer>
+      <%- include('partials/footer') %>
+    </footer>
 
-<footer>
-  <%- include('partials/footer') %>
-</footer>
-
-</body>
+  </body>
 </html>

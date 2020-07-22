@@ -2,58 +2,58 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <%- include('partials/head') %>
-</head>
-<body class="container">
+  <head>
+    <%- include('partials/head') %>
+  </head>
+  <body class="container">
 
-<header>
-  <%- include('partials/header') %>
-</header>
+    <header>
+      <%- include('partials/header') %>
+    </header>
 
-<main>
-      <div class="jumbotron">
-        <h2>Add food</h2>
-          <form method="POST" action="foodadded">
-          <div class="form-group">
-            <label for="name">Food Name :</label>
-            <input id="name" type="text" name="name" pla ceholder="food name" />
+    <main>
+          <div class="jumbotron">
+            <h2>Add food</h2>
+              <form method="POST" action="foodadded">
+                <div class="form-group">
+                  <label for="name">Food Name :</label>
+                  <input id="name" type="text" name="name" pla ceholder="food name" />
+                </div>
+                <div class="form-group">
+                  <label for="unit">Unit :</label>
+                  <input id="unit" type="text" name="unit" value="g" />
+                </div>
+                <div class="form-group">
+                  <label for="calorie">Calories : </label>
+                  <input id="calorie" type="number" name="calorie" placeholder="amount"/>
+                </div>
+                <div class="form-group">
+                  <label for="carbs">Carbonhydrates : </label>
+                  <input id="carbs" type="number" name="carbs" placeholder="amount"/>
+                </div>
+                <div class="form-group">
+                  <label for="fat">Fat : </label>
+                  <input id="fat" type="number" name="fat" placeholder="amount"/>
+                </div>
+                <div class="form-group">
+                  <label for="protein">Protein : </label>
+                  <input id="protein" type="number" name="protein" placeholder="amount"/>
+                </div>
+                <div class="form-group">
+                  <label for="salt">Salt : </label>
+                  <input id="salt" type="number" name="salt" placeholder="amount"/>
+                </div>
+                <div class="form-group">
+                  <label for="sugar">Sugar : </label>
+                  <input id="sugar" type="number" name="sugar" placeholder="amount"/>
+                </div>
+                <input type="submit" value="SUBMIT" />
+              </form>
           </div>
-          <div class="form-group">
-            <label for="unit">Unit :</label>
-            <input id="unit" type="text" name="unit" value="g" />
-          </div>
-          <div class="form-group">
-            <label for="calorie">Calories : </label>
-            <input id="calorie" type="number" name="calorie" placeholder="amount"/>
-          </div>
-          <div class="form-group">
-            <label for="carbs">Carbonhydrates : </label>
-            <input id="carbs" type="number" name="carbs" placeholder="amount"/>
-          </div>
-          <div class="form-group">
-            <label for="fat">Fat : </label>
-            <input id="fat" type="number" name="fat" placeholder="amount"/>
-          </div>
-          <div class="form-group">
-            <label for="protein">Protein : </label>
-            <input id="protein" type="number" name="protein" placeholder="amount"/>
-          </div>
-          <div class="form-group">
-            <label for="salt">Salt : </label>
-            <input id="salt" type="number" name="salt" placeholder="amount"/>
-          </div>
-          <div class="form-group">
-            <label for="sugar">Sugar : </label>
-            <input id="sugar" type="number" name="sugar" placeholder="amount"/>
-          </div>
-          <input type="submit" value="SUBMIT" />
-        </form>
-    </div>
-</main>
+    </main>
 
-<footer>
-  <%- include('partials/footer') %>
-</footer>
-</body>
+    <footer>
+      <%- include('partials/footer') %>
+    </footer>
+  </body>
 </html>
